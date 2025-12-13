@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp2
 {
-    internal class pattern_1
-    {
+    public class Facade
+{
+  
     }
 }

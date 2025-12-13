@@ -1,0 +1,59 @@
+{
+  "restaurants": [
+    {
+      "id": "r1",
+      "name": "Fast Bites",
+      "type": "FastFood",
+      "menu": [
+        { "id": "m1", "name": "Burger", "price": 50 },
+        { "id": "m2", "name": "Fries", "price": 20 },
+        { "id": "m3", "name": "Pizza", "price": 80 }
+      ]
+    },
+    {
+      "id": "r2",
+      "name": "Healthy Eats",
+      "type": "Healthy",
+      "menu": [
+        { "id": "m4", "name": "Salad", "price": 40 },
+        { "id": "m5", "name": "Smoothie", "price": 30 }
+      ]
+    },
+    {
+      "id": "r3",
+      "name": "Italian Corner",
+      "type": "Italian",
+      "menu": [
+        { "id": "m6", "name": "Pasta Alfredo", "price": 90 },
+        { "id": "m7", "name": "Lasagna", "price": 110 }
+      ]
+    },
+    {
+      "id": "r4",
+      "name": "Orient Grill",
+      "type": "Grill",
+      "menu": [
+        { "id": "m8", "name": "Grilled Chicken", "price": 120 },
+        { "id": "m9", "name": "Kofta", "price": 100 }
+      ]
+    },
+    {
+      "id": "r5",
+      "name": "Korean Food",
+      "type": "Asian",
+      "menu": [
+        { "id": "m10", "name": "chicken sweet and sour", "price": 150 },
+        { "id": "m11", "name": "Kimchi Stew", "price": 60 },
+        { "id": "m12", "name": "Tteokbokki", "price": 50 }
+      ]
+    }
+  ],
+
+  "customizations": [
+    { "id": "c1", "name": "Add Cheese", "price": 50 },
+    { "id": "c2", "name": "Extra Sauce", "price": 25 },
+    { "id": "c3", "name": "Make it Combo", "price": 40 }
+  ],
+
+  "orders": []
+}
