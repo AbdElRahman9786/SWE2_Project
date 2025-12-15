@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ConsoleApp2
 {
@@ -46,7 +47,8 @@ namespace ConsoleApp2
                     Console.WriteLine("Invalid choice, try again.");
                 }
 
-                string restaurantName = restaurants[rChoice].Name;
+                var selectedRestaurant = restaurants[rChoice];
+                string restaurantName = selectedRestaurant.Name;
 
                 Console.WriteLine("\n----------------------------------------");
                 Console.WriteLine($"          You Selected: {restaurantName}");
@@ -65,7 +67,7 @@ namespace ConsoleApp2
                 Console.WriteLine($"----- {restaurantName} Menu -----");
                 for (int i = 0; i < menu.Count; i++)
                 {
-                    Console.WriteLine($"{i + 1}) {menu[i].Name} - {menu[i].Price}");
+                    Console.WriteLine($"{i + 1}) {menu[i].Name} - {menu[i].Price} LE");
                 }
 
                 int fChoice;
@@ -83,8 +85,63 @@ namespace ConsoleApp2
 
                 var selectedFood = menu[fChoice];
 
-                Console.WriteLine($"\nYou selected: {selectedFood.Name} - {selectedFood.Price} LE");
-                Console.WriteLine("\nOrder placed successfully ");
+                IOrderComponent order = new BaseOrder(selectedFood);
+
+                var availableCustomizations = selectedRestaurant.Customizations
+                    .Where(c => c.ApplicableItems == null || 
+                               c.ApplicableItems.Count == 0 || 
+                               c.ApplicableItems.Contains(selectedFood.Id))
+                    .ToList();
+
+                if (availableCustomizations.Count > 0)
+                {
+                    bool addingCustomizations = true;
+                    while (addingCustomizations)
+                    {
+                        Console.WriteLine($"\n----- Available Customizations for {selectedFood.Name} -----");
+                        for (int i = 0; i < availableCustomizations.Count; i++)
+                        {
+                            Console.WriteLine($"{i + 1}) {availableCustomizations[i].Name} - {availableCustomizations[i].Price} LE");
+                        }
+                        Console.WriteLine($"{availableCustomizations.Count + 1}) No more customizations");
+
+                        int cChoice;
+                        while (true)
+                        {
+                            Console.Write("\nChoose Customization: ");
+                            if (int.TryParse(Console.ReadLine(), out cChoice) &&
+                                cChoice >= 1 && cChoice <= availableCustomizations.Count + 1)
+                            {
+                                break;
+                            }
+                            Console.WriteLine("Invalid choice, try again.");
+                        }
+
+                        if (cChoice == availableCustomizations.Count + 1)
+                        {
+                            addingCustomizations = false;
+                        }
+                        else
+                        {
+                            var selectedCustomization = availableCustomizations[cChoice - 1];
+                            order = new CustomizationDecorator(order, selectedCustomization);
+                            Console.WriteLine($"\n✓ Added: {selectedCustomization.Name}");
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"\nNo customizations available for {selectedFood.Name}.");
+                }
+
+                Console.WriteLine("\n========================================");
+                Console.WriteLine("           ORDER SUMMARY");
+                Console.WriteLine("========================================");
+                Console.WriteLine($"Restaurant: {restaurantName} ({selectedRestaurant.Type})");
+                Console.WriteLine($"Item: {order.GetDescription()}");
+                Console.WriteLine($"Total Price: {order.GetPrice()} LE");
+                Console.WriteLine("========================================");
+                Console.WriteLine("\nOrder placed successfully!");
 
                 
                 Console.Write("\nDo you want to order again? (y/n): ");
@@ -97,7 +154,7 @@ namespace ConsoleApp2
                 }
             }
 
-            Console.WriteLine("\nThank you for using Food Delivery App ");
+            Console.WriteLine("\nThank you for using Food Delivery App!");
         }
     }
 }

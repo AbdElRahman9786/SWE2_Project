@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
@@ -57,7 +56,6 @@ public sealed class JsonDatabase
                    ?? new RootData();
 
             Data.Restaurants ??= new();
-            Data.Customizations ??= new();
             Data.Orders ??= new();
 
             Console.WriteLine("Database loaded successfully.");
@@ -99,7 +97,6 @@ public sealed class JsonDatabase
 public class RootData
 {
     public List<Restaurant> Restaurants { get; set; } = new();
-    public List<Customization> Customizations { get; set; } = new();
     public List<Order> Orders { get; set; } = new();
 }
 
@@ -110,6 +107,7 @@ public class Restaurant
     public string Name { get; set; } = "";
     public string Type { get; set; } = "";
     public List<MenuItem> Menu { get; set; } = new();
+    public List<Customization> Customizations { get; set; } = new();
 }
 
 
@@ -126,6 +124,7 @@ public class Customization
     public string Id { get; set; } = Guid.NewGuid().ToString();
     public string Name { get; set; } = "";
     public decimal Price { get; set; }
+    public List<string> ApplicableItems { get; set; } = new();
 }
 
 

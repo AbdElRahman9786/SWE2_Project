@@ -8,6 +8,13 @@
         { "id": "m1", "name": "Burger", "price": 50 },
         { "id": "m2", "name": "Fries", "price": 20 },
         { "id": "m3", "name": "Pizza", "price": 80 }
+      ],
+      "customizations": [
+        { "id": "c1", "name": "Add Cheese", "price": 10, "applicableItems": ["m1", "m3"] },
+        { "id": "c2", "name": "Extra Sauce", "price": 5, "applicableItems": ["m1", "m3"] },
+        { "id": "c3", "name": "Make it Combo (Add Drink)", "price": 15, "applicableItems": ["m1", "m2", "m3"] },
+        { "id": "c4", "name": "Extra Bacon", "price": 15, "applicableItems": ["m1"] },
+        { "id": "c5", "name": "Large Size", "price": 10, "applicableItems": ["m2", "m3"] }
       ]
     },
     {
@@ -17,6 +24,13 @@
       "menu": [
         { "id": "m4", "name": "Salad", "price": 40 },
         { "id": "m5", "name": "Smoothie", "price": 30 }
+      ],
+      "customizations": [
+        { "id": "c6", "name": "Add Grilled Chicken", "price": 20, "applicableItems": ["m4"] },
+        { "id": "c7", "name": "Extra Vegetables", "price": 8, "applicableItems": ["m4"] },
+        { "id": "c8", "name": "Add Protein Powder", "price": 15, "applicableItems": ["m5"] },
+        { "id": "c9", "name": "Low-Fat Dressing", "price": 5, "applicableItems": ["m4"] },
+        { "id": "c10", "name": "Add Chia Seeds", "price": 10, "applicableItems": ["m4", "m5"] }
       ]
     },
     {
@@ -26,6 +40,13 @@
       "menu": [
         { "id": "m6", "name": "Pasta Alfredo", "price": 90 },
         { "id": "m7", "name": "Lasagna", "price": 110 }
+      ],
+      "customizations": [
+        { "id": "c11", "name": "Extra Parmesan Cheese", "price": 12, "applicableItems": ["m6", "m7"] },
+        { "id": "c12", "name": "Add Garlic Bread", "price": 20, "applicableItems": ["m6", "m7"] },
+        { "id": "c13", "name": "Extra Meat", "price": 25, "applicableItems": ["m7"] },
+        { "id": "c14", "name": "Spicy Option", "price": 5, "applicableItems": ["m6", "m7"] },
+        { "id": "c15", "name": "Extra Mushrooms", "price": 10, "applicableItems": ["m6", "m7"] }
       ]
     },
     {
@@ -35,6 +56,13 @@
       "menu": [
         { "id": "m8", "name": "Grilled Chicken", "price": 120 },
         { "id": "m9", "name": "Kofta", "price": 100 }
+      ],
+      "customizations": [
+        { "id": "c16", "name": "Add Rice", "price": 15, "applicableItems": ["m8", "m9"] },
+        { "id": "c17", "name": "Extra Tahini Sauce", "price": 8, "applicableItems": ["m8", "m9"] },
+        { "id": "c18", "name": "Grilled Vegetables", "price": 20, "applicableItems": ["m8", "m9"] },
+        { "id": "c19", "name": "Double Portion", "price": 50, "applicableItems": ["m8", "m9"] },
+        { "id": "c20", "name": "Add Hummus", "price": 12, "applicableItems": ["m8", "m9"] }
       ]
     },
     {
@@ -45,14 +73,15 @@
         { "id": "m10", "name": "chicken sweet and sour", "price": 150 },
         { "id": "m11", "name": "Kimchi Stew", "price": 60 },
         { "id": "m12", "name": "Tteokbokki", "price": 50 }
+      ],
+      "customizations": [
+        { "id": "c21", "name": "Extra Spicy", "price": 5, "applicableItems": ["m10", "m11", "m12"] },
+        { "id": "c22", "name": "Add Steamed Rice", "price": 10, "applicableItems": ["m10", "m11", "m12"] },
+        { "id": "c23", "name": "Extra Kimchi", "price": 8, "applicableItems": ["m11", "m12"] },
+        { "id": "c24", "name": "Add Egg", "price": 10, "applicableItems": ["m11", "m12"] },
+        { "id": "c25", "name": "Extra Vegetables", "price": 12, "applicableItems": ["m10", "m12"] }
       ]
     }
-  ],
-
-  "customizations": [
-    { "id": "c1", "name": "Add Cheese", "price": 50 },
-    { "id": "c2", "name": "Extra Sauce", "price": 25 },
-    { "id": "c3", "name": "Make it Combo", "price": 40 }
   ],
 
   "orders": []
