@@ -4,46 +4,33 @@ using System.Linq;
 
 namespace ConsoleApp2
 {
-    public class RestaurantFacade
+    public class FoodOrderingFacade
     {
-        private readonly JsonDatabase _database;
+        private readonly JsonDatabase _db;
 
-        public RestaurantFacade()
+        public FoodOrderingFacade()
         {
-            _database = JsonDatabase.Instance; // Singleton
+            _db = JsonDatabase.Instance;
         }
 
-        // ================= Singleton =================
-        public RootData GetAllData()
-        {
-            return _database.Data;
-        }
-
-        public void SaveDatabase()
-        {
-            _database.Save();
-        }
-
-        // ================= Factory =================
+       
         public Restaurant GetRestaurant(string restaurantName)
         {
             var factory = RestaurantFactoryProvider.GetFactory(restaurantName);
             return factory.GetRestaurant();
         }
 
-        // ================= Abstract Factory =================
+       
         public List<MenuItem> GetMenu(string restaurantName)
         {
             var menuFactory = MenuFactoryProvider.GetMenuFactory(restaurantName);
             return menuFactory.GetMenu();
         }
 
-        // ================= Decorator =================
-        public IOrderComponent CreateOrder(
-            MenuItem menuItem,
-            List<Customization> customizations)
+       
+        public IOrderComponent CreateOrder(MenuItem item, List<Customization> customizations)
         {
-            IOrderComponent order = new BaseOrder(menuItem);
+            IOrderComponent order = new BaseOrder(item);
 
             foreach (var customization in customizations)
             {
@@ -53,19 +40,27 @@ namespace ConsoleApp2
             return order;
         }
 
-        public List<Customization> GetAllCustomizations()
+       
+        public void PlaceOrder(string restaurantId, List<IOrderComponent> orders)
         {
-            return _database.Data.Customizations;
-        }
-
-        // ================= Helpers =================
-        public void PrintRestaurants()
-        {
-            var restaurants = _database.Data.Restaurants;
-            for (int i = 0; i < restaurants.Count; i++)
+            var order = new Order
             {
-                Console.WriteLine($"{i + 1}) {restaurants[i].Name}");
+                RestaurantId = restaurantId,
+                Items = new List<OrderItem>(),
+                Total = orders.Sum(o => o.GetPrice())
+            };
+
+            foreach (var o in orders)
+            {
+                order.Items.Add(new OrderItem
+                {
+                    Name = o.GetDescription(),
+                    Price = o.GetPrice()
+                });
             }
+
+            _db.Data.Orders.Add(order);
+            _db.Save();
         }
     }
 }
