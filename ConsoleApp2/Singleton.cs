@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
@@ -82,7 +82,7 @@ public sealed class JsonDatabase
 
                 string json = JsonSerializer.Serialize(Data, options);
                 File.WriteAllText(_filePath, json);
-                Console.WriteLine("Database saved successfully.");
+               
             }
             catch (Exception ex)
             {
