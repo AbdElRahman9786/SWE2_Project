@@ -1,10 +1,11 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 
 public sealed class JsonDatabase
 {
+
     private static JsonDatabase _instance;
     private static readonly object _lock = new object();
 

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -136,7 +136,7 @@ namespace ConsoleApp2
 
                 Console.WriteLine("\n========================================");
                 Console.WriteLine("           ORDER SUMMARY");
-                Console.WriteLine("========================================");
+                Console.WriteLine("==========================================");
                 Console.WriteLine($"Restaurant: {restaurantName} ({selectedRestaurant.Type})");
                 Console.WriteLine($"Item: {orderComponent.GetDescription()}");
                 Console.WriteLine($"Total Price: {orderComponent.GetPrice()} LE");

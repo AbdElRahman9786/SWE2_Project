@@ -1,59 +1,359 @@
 {
-  "restaurants": [
+  "Restaurants": [
     {
-      "id": "r1",
-      "name": "Fast Bites",
-      "type": "FastFood",
-      "menu": [
-        { "id": "m1", "name": "Burger", "price": 50 },
-        { "id": "m2", "name": "Fries", "price": 20 },
-        { "id": "m3", "name": "Pizza", "price": 80 }
+      "Id": "r1",
+      "Name": "Fast Bites",
+      "Type": "FastFood",
+      "Menu": [
+        {
+          "Id": "m1",
+          "Name": "Burger",
+          "Price": 50
+        },
+        {
+          "Id": "m2",
+          "Name": "Fries",
+          "Price": 20
+        },
+        {
+          "Id": "m3",
+          "Name": "Pizza",
+          "Price": 80
+        }
+      ],
+      "Customizations": [
+        {
+          "Id": "c1",
+          "Name": "Add Cheese",
+          "Price": 10,
+          "ApplicableItems": [
+            "m1",
+            "m3"
+          ]
+        },
+        {
+          "Id": "c2",
+          "Name": "Extra Sauce",
+          "Price": 5,
+          "ApplicableItems": [
+            "m1",
+            "m3"
+          ]
+        },
+        {
+          "Id": "c3",
+          "Name": "Make it Combo (Add Drink)",
+          "Price": 15,
+          "ApplicableItems": [
+            "m1",
+            "m2",
+            "m3"
+          ]
+        },
+        {
+          "Id": "c4",
+          "Name": "Extra Bacon",
+          "Price": 15,
+          "ApplicableItems": [
+            "m1"
+          ]
+        },
+        {
+          "Id": "c5",
+          "Name": "Large Size",
+          "Price": 10,
+          "ApplicableItems": [
+            "m2",
+            "m3"
+          ]
+        }
       ]
     },
     {
-      "id": "r2",
-      "name": "Healthy Eats",
-      "type": "Healthy",
-      "menu": [
-        { "id": "m4", "name": "Salad", "price": 40 },
-        { "id": "m5", "name": "Smoothie", "price": 30 }
+      "Id": "r2",
+      "Name": "Healthy Eats",
+      "Type": "Healthy",
+      "Menu": [
+        {
+          "Id": "m4",
+          "Name": "Salad",
+          "Price": 40
+        },
+        {
+          "Id": "m5",
+          "Name": "Smoothie",
+          "Price": 30
+        }
+      ],
+      "Customizations": [
+        {
+          "Id": "c6",
+          "Name": "Add Grilled Chicken",
+          "Price": 20,
+          "ApplicableItems": [
+            "m4"
+          ]
+        },
+        {
+          "Id": "c7",
+          "Name": "Extra Vegetables",
+          "Price": 8,
+          "ApplicableItems": [
+            "m4"
+          ]
+        },
+        {
+          "Id": "c8",
+          "Name": "Add Protein Powder",
+          "Price": 15,
+          "ApplicableItems": [
+            "m5"
+          ]
+        },
+        {
+          "Id": "c9",
+          "Name": "Low-Fat Dressing",
+          "Price": 5,
+          "ApplicableItems": [
+            "m4"
+          ]
+        },
+        {
+          "Id": "c10",
+          "Name": "Add Chia Seeds",
+          "Price": 10,
+          "ApplicableItems": [
+            "m4",
+            "m5"
+          ]
+        }
       ]
     },
     {
-      "id": "r3",
-      "name": "Italian Corner",
-      "type": "Italian",
-      "menu": [
-        { "id": "m6", "name": "Pasta Alfredo", "price": 90 },
-        { "id": "m7", "name": "Lasagna", "price": 110 }
+      "Id": "r3",
+      "Name": "Italian Corner",
+      "Type": "Italian",
+      "Menu": [
+        {
+          "Id": "m6",
+          "Name": "Pasta Alfredo",
+          "Price": 90
+        },
+        {
+          "Id": "m7",
+          "Name": "Lasagna",
+          "Price": 110
+        }
+      ],
+      "Customizations": [
+        {
+          "Id": "c11",
+          "Name": "Extra Parmesan Cheese",
+          "Price": 12,
+          "ApplicableItems": [
+            "m6",
+            "m7"
+          ]
+        },
+        {
+          "Id": "c12",
+          "Name": "Add Garlic Bread",
+          "Price": 20,
+          "ApplicableItems": [
+            "m6",
+            "m7"
+          ]
+        },
+        {
+          "Id": "c13",
+          "Name": "Extra Meat",
+          "Price": 25,
+          "ApplicableItems": [
+            "m7"
+          ]
+        },
+        {
+          "Id": "c14",
+          "Name": "Spicy Option",
+          "Price": 5,
+          "ApplicableItems": [
+            "m6",
+            "m7"
+          ]
+        },
+        {
+          "Id": "c15",
+          "Name": "Extra Mushrooms",
+          "Price": 10,
+          "ApplicableItems": [
+            "m6",
+            "m7"
+          ]
+        }
       ]
     },
     {
-      "id": "r4",
-      "name": "Orient Grill",
-      "type": "Grill",
-      "menu": [
-        { "id": "m8", "name": "Grilled Chicken", "price": 120 },
-        { "id": "m9", "name": "Kofta", "price": 100 }
+      "Id": "r4",
+      "Name": "Orient Grill",
+      "Type": "Grill",
+      "Menu": [
+        {
+          "Id": "m8",
+          "Name": "Grilled Chicken",
+          "Price": 120
+        },
+        {
+          "Id": "m9",
+          "Name": "Kofta",
+          "Price": 100
+        }
+      ],
+      "Customizations": [
+        {
+          "Id": "c16",
+          "Name": "Add Rice",
+          "Price": 15,
+          "ApplicableItems": [
+            "m8",
+            "m9"
+          ]
+        },
+        {
+          "Id": "c17",
+          "Name": "Extra Tahini Sauce",
+          "Price": 8,
+          "ApplicableItems": [
+            "m8",
+            "m9"
+          ]
+        },
+        {
+          "Id": "c18",
+          "Name": "Grilled Vegetables",
+          "Price": 20,
+          "ApplicableItems": [
+            "m8",
+            "m9"
+          ]
+        },
+        {
+          "Id": "c19",
+          "Name": "Double Portion",
+          "Price": 50,
+          "ApplicableItems": [
+            "m8",
+            "m9"
+          ]
+        },
+        {
+          "Id": "c20",
+          "Name": "Add Hummus",
+          "Price": 12,
+          "ApplicableItems": [
+            "m8",
+            "m9"
+          ]
+        }
       ]
     },
     {
-      "id": "r5",
-      "name": "Korean Food",
-      "type": "Asian",
-      "menu": [
-        { "id": "m10", "name": "chicken sweet and sour", "price": 150 },
-        { "id": "m11", "name": "Kimchi Stew", "price": 60 },
-        { "id": "m12", "name": "Tteokbokki", "price": 50 }
+      "Id": "r5",
+      "Name": "Korean Food",
+      "Type": "Asian",
+      "Menu": [
+        {
+          "Id": "m10",
+          "Name": "chicken sweet and sour",
+          "Price": 150
+        },
+        {
+          "Id": "m11",
+          "Name": "Kimchi Stew",
+          "Price": 60
+        },
+        {
+          "Id": "m12",
+          "Name": "Tteokbokki",
+          "Price": 50
+        }
+      ],
+      "Customizations": [
+        {
+          "Id": "c21",
+          "Name": "Extra Spicy",
+          "Price": 5,
+          "ApplicableItems": [
+            "m10",
+            "m11",
+            "m12"
+          ]
+        },
+        {
+          "Id": "c22",
+          "Name": "Add Steamed Rice",
+          "Price": 10,
+          "ApplicableItems": [
+            "m10",
+            "m11",
+            "m12"
+          ]
+        },
+        {
+          "Id": "c23",
+          "Name": "Extra Kimchi",
+          "Price": 8,
+          "ApplicableItems": [
+            "m11",
+            "m12"
+          ]
+        },
+        {
+          "Id": "c24",
+          "Name": "Add Egg",
+          "Price": 10,
+          "ApplicableItems": [
+            "m11",
+            "m12"
+          ]
+        },
+        {
+          "Id": "c25",
+          "Name": "Extra Vegetables",
+          "Price": 12,
+          "ApplicableItems": [
+            "m10",
+            "m12"
+          ]
+        }
       ]
     }
   ],
-
-  "customizations": [
-    { "id": "c1", "name": "Add Cheese", "price": 50 },
-    { "id": "c2", "name": "Extra Sauce", "price": 25 },
-    { "id": "c3", "name": "Make it Combo", "price": 40 }
-  ],
-
-  "orders": []
+  "Orders": [
+    {
+      "Id": "54cd9294-8484-4302-a94f-3dfdc311710d",
+      "RestaurantId": "r2",
+      "Items": [
+        {
+          "ItemId": "",
+          "Name": "Smoothie",
+          "Price": 30,
+          "Customizations": []
+        }
+      ],
+      "Total": 30
+    },
+    {
+      "Id": "8369608b-ba60-4677-b7e1-4c21e13a0411",
+      "RestaurantId": "r3",
+      "Items": [
+        {
+          "ItemId": "",
+          "Name": "Pasta Alfredo \u002B Add Garlic Bread \u002B Extra Mushrooms",
+          "Price": 120,
+          "Customizations": []
+        }
+      ],
+      "Total": 120
+    }
+  ]
 }
