@@ -51,7 +51,32 @@ namespace ConsoleApp2
                 Console.WriteLine($"          You Selected: {restaurantName}");
                 Console.WriteLine("----------------------------------------\n");
 
-               
+                
+                IRestaurantFactory factory = RestaurantFactoryProvider.GetFactory(restaurantName);
+
+                Console.WriteLine("\nDelivery Options:");
+                Console.WriteLine("1) Normal Delivery (no extra cost)");
+                Console.WriteLine("2) Fast Delivery (+10 LE)");
+
+                int deliveryChoice;
+                while (true)
+                {
+                    Console.Write("Choose delivery type (1 or 2): ");
+                    if (int.TryParse(Console.ReadLine(), out deliveryChoice) &&
+                        (deliveryChoice == 1 || deliveryChoice == 2))
+                    {
+                        break;
+                    }
+                    Console.WriteLine("Invalid choice, try again.");
+                }
+
+                bool fastDelivery = deliveryChoice == 2;
+                decimal deliveryFee = fastDelivery ? 10 : 0;
+
+                IDeliveryService deliveryService = factory.CreateDeliveryService(fastDelivery);
+                Console.WriteLine($"\nEstimated Delivery Time: {deliveryService.GetEstimatedTime()}");
+                
+
                 var menu = facade.GetMenu(restaurantName);
 
                 if (menu.Count == 0)
@@ -60,7 +85,7 @@ namespace ConsoleApp2
                     continue;
                 }
 
-                Console.WriteLine($"----- {restaurantName} Menu -----");
+                Console.WriteLine($"\n----- {restaurantName} Menu -----");
                 for (int i = 0; i < menu.Count; i++)
                 {
                     Console.WriteLine($"{i + 1}) {menu[i].Name} - {menu[i].Price} LE");
@@ -131,7 +156,6 @@ namespace ConsoleApp2
                     Console.WriteLine($"\nNo customizations available for {selectedFood.Name}.");
                 }
 
-               
                 var orderComponent = facade.CreateOrder(selectedFood, selectedCustomizations);
 
                 Console.WriteLine("\n========================================");
@@ -139,11 +163,12 @@ namespace ConsoleApp2
                 Console.WriteLine("==========================================");
                 Console.WriteLine($"Restaurant: {restaurantName} ({selectedRestaurant.Type})");
                 Console.WriteLine($"Item: {orderComponent.GetDescription()}");
-                Console.WriteLine($"Total Price: {orderComponent.GetPrice()} LE");
+                decimal totalPrice = orderComponent.GetPrice() + deliveryFee;
+                Console.WriteLine($"Total Price: {totalPrice} LE");
+                Console.WriteLine($"Delivery Time: {deliveryService.GetEstimatedTime()}");
                 Console.WriteLine("========================================");
                 Console.WriteLine("\nOrder placed successfully!");
 
-                
                 facade.PlaceOrder(
                     selectedRestaurant.Id,
                     new List<IOrderComponent> { orderComponent }
