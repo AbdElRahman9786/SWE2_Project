@@ -20,6 +20,12 @@ namespace ConsoleApp2
             return factory.GetRestaurant();
         }
 
+        public IDeliveryService GetDeliveryService(string restaurantName, bool fastDelivery)
+        {
+           var factory = RestaurantFactoryProvider.GetFactory(restaurantName);
+           return factory.CreateDeliveryService(fastDelivery);
+        }
+
        
         public List<MenuItem> GetMenu(string restaurantName)
         {
