@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -51,8 +51,6 @@ namespace ConsoleApp2
                 Console.WriteLine($"          You Selected: {restaurantName}");
                 Console.WriteLine("----------------------------------------\n");
 
-                
-                IRestaurantFactory factory = RestaurantFactoryProvider.GetFactory(restaurantName);
 
                 Console.WriteLine("\nDelivery Options:");
                 Console.WriteLine("1) Normal Delivery (no extra cost)");
@@ -73,7 +71,7 @@ namespace ConsoleApp2
                 bool fastDelivery = deliveryChoice == 2;
                 decimal deliveryFee = fastDelivery ? 10 : 0;
 
-                IDeliveryService deliveryService = factory.CreateDeliveryService(fastDelivery);
+                IDeliveryService deliveryService = facade.GetDeliveryService(restaurantName, fastDelivery); 
                 Console.WriteLine($"\nEstimated Delivery Time: {deliveryService.GetEstimatedTime()}");
                 
 
